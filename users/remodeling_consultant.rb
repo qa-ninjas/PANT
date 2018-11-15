@@ -1,17 +1,14 @@
-require_relative "../pages_controller.rb"
-require_relative "./users.rb"
+require_relative "./user.rb"
 
 class RemodelingConsultant < User
 
-    attr_accessor :username, :password, :controller
-
-    def initialize username, password
+    def initialize username, password, page_collection
         super
         # any RC specific initilization done here
     end
 
     def estimate_appointment
-        @controller.estimate_appointment
+     #   @controller.estimate_appointment
     end
 
     

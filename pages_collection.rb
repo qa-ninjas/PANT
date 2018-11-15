@@ -1,7 +1,7 @@
 require_relative './pages/login_page'
 require_relative './pages/sales_page'
 
-class PagesController 
+class PagesCollection
     # maybe this can be a module?
     # might not need anything besides ref to pages
     attr_reader :wait, :driver, :host_name
@@ -9,16 +9,13 @@ class PagesController
     def initialize hostname
         @host_name = hostname
         @url = "https://" + hostname
-       # @wait = 15
-       #  @driver = "some selenium"
-       # im going to do a sample with driver owned by the user
-       # to see how it works
+        @driver = "selenium driver"
     end
 
     def login_page
         # working on the assumption that the page should know
         # the required URL.. maybe check as part of init?
-        LoginPage.new
+        LoginPage.new @url, @driver
     end
 
     def estimate_appointment

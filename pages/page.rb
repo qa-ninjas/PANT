@@ -1,7 +1,8 @@
 class Page
     attr_accessor :url
-    def initialize url
+    def initialize url, driver
         @url = url
+        @driver = driver
     end
 end
 

@@ -2,7 +2,8 @@
 
 
 require_relative "../users/user"
-require_relative "../pages_controller"
+require_relative "../pages_collection"
+require_relative "../users/remodeling_consultant"
 
 class LoginTest
     #probably implement a test-superclass, or use a framework for that?
@@ -15,7 +16,7 @@ class LoginTest
     # and we could come up with a clever way to string em together.
     def initialize username, password, hostname
     
-        @controller = PagesController.new("https://" + hostname)
+        @controller = PagesCollection.new("https://" + hostname)
         @user = User.new(username, password, @controller)
     end
 

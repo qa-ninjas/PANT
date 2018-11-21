@@ -1,7 +1,7 @@
 #### hardcoded main to run a test... will reorganize later
 
 require 'io/console'
-require_relative './tests/login_test'
+require_relative './workflows/login'
 
 puts "Put in username then password"
 print "Username: "
@@ -15,5 +15,5 @@ hostname = gets.chomp
 
 
 puts "---- #### TEST START #### ----"
-login_test = LoginTest.new username, password, hostname
+login_test = Login.new username, password, hostname
 puts login_test.run

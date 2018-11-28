@@ -2,20 +2,27 @@
 
 require 'io/console'
 require_relative './workflows/login'
+require_relative 'workflow_controller.rb'
 
- input = {}
+input = {}
+user = {}
 
 puts "Put in username then password"
 print "Username: "
-input[:username] = gets.chomp
+user[:username] = gets.chomp
 
 print "Password: "
-input[:password] = STDIN.noecho(&:gets)
+user[:password] = STDIN.noecho(&:gets)
 
 print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
 input[:hostname] = gets.chomp
 
+commands = [{:workflow => "login", :user => user, :input => input}]
+
 
 puts "---- #### TEST START #### ----"
-login_test = Login.new input
-puts login_test.run
+workflow_controller = WorkflowController.new(commands: commands)
+
+puts "running workflows"
+workflow_controller.run_workflows
+

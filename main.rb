@@ -3,17 +3,19 @@
 require 'io/console'
 require_relative './workflows/login'
 
+ input = {}
+
 puts "Put in username then password"
 print "Username: "
-username = gets.chomp
+input[:username] = gets.chomp
 
 print "Password: "
-password = STDIN.noecho(&:gets)
+input[:password] = STDIN.noecho(&:gets)
 
 print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
-hostname = gets.chomp
+input[:hostname] = gets.chomp
 
 
 puts "---- #### TEST START #### ----"
-login_test = Login.new username, password, hostname
+login_test = Login.new input
 puts login_test.run

@@ -1,7 +1,7 @@
 # pat's first shot a test
 require_relative "./workflow.rb"
 
-class Login < WorkFlow
+class Login < Workflow
     #probably implement a test-superclass, or use a framework for that?
 
 

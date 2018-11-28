@@ -1,11 +1,11 @@
 require_relative "../pages_collection"
 require_relative "../users/user"
 
-class WorkFlow
-  def initialize username, password, hostname
+class Workflow
+  def initialize input
     
-    @controller = PagesCollection.new("https://" + hostname)
-    @user = User.new(username, password, @controller)
+    @controller = PagesCollection.new("https://" + input[:hostname])
+    @user = User.new(input[:username], input[:password], @controller)
   end
 
   def pre_run

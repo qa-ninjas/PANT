@@ -10,6 +10,12 @@
       "input": {
         "other": "unused info"
       }
+    },
+    {
+      "workflow": "login",
+      "input": {
+        "other": "unused info"
+      }
     }
   ]
 }

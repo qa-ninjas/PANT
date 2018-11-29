@@ -13,7 +13,7 @@ class User
     def login
         puts "user #{self.to_s} is trying to log into #{@pages_collection.host_name}"
         login_page = @pages_collection.login_page
-
+        sleep(3)
         login_page.enter_username @username
         login_page.enter_password @password
         login_page.submit_form

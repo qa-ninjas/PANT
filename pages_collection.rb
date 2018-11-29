@@ -1,5 +1,6 @@
 require_relative './pages/login_page'
 require_relative './pages/sales_page'
+require "selenium-webdriver"
 
 class PagesCollection
     # maybe this can be a module?
@@ -7,9 +8,8 @@ class PagesCollection
     attr_reader :wait, :driver, :host_name
 
     def initialize hostname
-        @host_name = hostname
         @url = "https://" + hostname
-        @driver = "selenium driver"
+        @driver = Selenium::WebDriver.for :firefox
     end
 
     def login_page

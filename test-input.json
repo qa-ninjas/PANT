@@ -1,0 +1,15 @@
+{
+  "hostname": "test-qa-environment.com",
+  "commands": [
+    {
+      "workflow": "login",
+      "user": {
+        "username": "jpinto",
+        "password": "PASSWORD"
+      },
+      "input": {
+        "other": "unused info"
+      }
+    }
+  ]
+}

@@ -1,27 +1,39 @@
+#!/usr/bin/env ruby
 #### hardcoded main to run a test... will reorganize later
 
 require 'io/console'
+require 'json'
 require_relative './workflows/login'
 require_relative 'workflow_controller.rb'
 
-input = {}
-user = {}
+file = ARGV.first
 
-puts "Put in username then password"
-print "Username: "
-user[:username] = gets.chomp
+workflows = JSON.parse(File.read(file), :symbolize_names => true) if file
 
-print "Password: "
-user[:password] = STDIN.noecho(&:gets)
+if workflows.instance_of?(Hash)
+    puts workflows
+    puts workflows["commands"]
+    commands = workflows[:commands]
+else
+    input = {}
+    user = {}
 
-print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
-input[:hostname] = gets.chomp
+    puts "Put in username then password"
+    print "Username: "
+    user[:username] = gets.chomp
 
-commands = [{:workflow => "login", :user => user, :input => input}]
+    print "Password: "
+    user[:password] = STDIN.noecho(&:gets)
+
+    print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
+    hostname = gets.chomp
+    commands = [{:workflow => "login", :user => user, :input => input}]
+    workflows = {:hostname => hostname, :commands => commands}
+end
 
 
 puts "---- #### TEST START #### ----"
-workflow_controller = WorkflowController.new(commands: commands)
+workflow_controller = WorkflowController.new(workflows: workflows)
 
 puts "running workflows"
 workflow_controller.run_workflows

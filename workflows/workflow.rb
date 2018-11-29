@@ -6,9 +6,9 @@ class Workflow
  
   end
 
-  def setup  user:, input:
+  def setup  user:, hostname:, input:
     @input = input
-    @controller = PagesCollection.new("https://" + input[:hostname])
+    @controller = PagesCollection.new("https://" + hostname)
     @user = User.new(user[:username], user[:password], @controller)
 
   end

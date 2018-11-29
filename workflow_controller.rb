@@ -3,22 +3,21 @@ require_relative "./workflows/workflow"
 
 class WorkflowController
 
-    def initialize(commands:)
-        @commands = commands
+    def initialize(workflows:)
+        @commands = workflows[:commands]
+        @hostname = workflows[:hostname]
     end
 
     def run_workflows
-
+        ## maybe implement a way to check if user is blank, and use a previous user if none is given for
+        # a subsequent command
         @commands.each do |command|
             workflow = find_workflow(command[:workflow])
             puts workflow
-            workflow.setup(:user => command[:user], :input => command[:input])
+            workflow.setup(:user => command[:user], :input => command[:input], :hostname => @hostname)
             workflow.run
 
         end
-
-
-
     end
 
 
@@ -31,14 +30,6 @@ class WorkflowController
         }
 
         return types[type]
-
     end
-
-
-
-
-    # def login input
-    #     return Login.new(input)
-    # end
 
 end

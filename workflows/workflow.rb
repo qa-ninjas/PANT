@@ -3,7 +3,9 @@ require_relative "../users/user"
 
 class Workflow
   def initialize
- 
+    if self.class == Workflow
+      puts "A workflow was specified that was not recognized"
+    end
   end
 
   def setup  user:, hostname:, input:

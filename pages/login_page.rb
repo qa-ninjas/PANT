@@ -21,18 +21,21 @@ class LoginPage < Page
     # enters the password in the password field
     def enter_password password
         puts "types password into field" 
-        @driver.find_element(:name, PASSWORD_FIELD).send_keys password     
+        password_field = wait.until { @driver.find_element(:name, PASSWORD_FIELD) }
+        password_field.send_keys password     
     end
 
     # enters the username in the username field
     def enter_username username
         puts "types username into field"
-        @driver.find_element(:name, USERNAME_FIELD).send_keys username
+        email_field = wait.until { @driver.find_element(:name, USERNAME_FIELD) }
+        email_field.send_keys username
     end
 
     # submits the form!
     def submit_form
         puts "pushes the login button"
-        @driver.find_element(:name, "button").click
+        submit_form = wait.until {@driver.find_element(:name, "button")}
+        submit_form.click
     end
 end

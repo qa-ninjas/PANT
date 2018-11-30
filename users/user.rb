@@ -19,7 +19,6 @@ class User
         login_page.submit_form
 
         puts "login complete"
-        # self.collection.login
     end
 
     def to_s

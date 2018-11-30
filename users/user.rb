@@ -7,12 +7,12 @@ class User
         @username = username
         @password = password
 
-        @collection = pages_collection
+        @pages_collection = pages_collection
     end
 
     def login
-        puts "user #{self.to_s} is trying to log into #{@collection.host_name}"
-        login_page = @collection.login_page
+        puts "user #{self.to_s} is trying to log into #{@pages_collection.host_name}"
+        login_page = @pages_collection.login_page
 
         login_page.enter_username @username
         login_page.enter_password @password

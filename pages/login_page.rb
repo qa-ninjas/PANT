@@ -7,6 +7,7 @@ require_relative "./page.rb"
 class LoginPage < Page
     # UI MAPPING
     USERNAME_FIELD = "CSS SELECTOR";
+    PASSWORD_FIELD = "DSFADSF";
 
     def initialize url, driver
         super

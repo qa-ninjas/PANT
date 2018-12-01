@@ -34,7 +34,7 @@ class LoginPage < Page
     # submits the form!
     def submit_form
         puts "pushes the login button"
-        submit_form = @wait.until {@driver.find_element(:name, "button")}
+        submit_form = @wait.until {@driver.find_element(:name, LOGIN_BUTTON)}
         submit_form.click
     end
 end

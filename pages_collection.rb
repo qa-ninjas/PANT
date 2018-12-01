@@ -8,14 +8,22 @@ class PagesCollection
     attr_reader :wait, :driver, :host_name
 
     def initialize hostname
-        @url = "https://" + hostname
-        @driver = Selenium::WebDriver.for :firefox
+        @params = {
+            :url => "https://" + hostname,
+            :driver => (Selenium::WebDriver.for :firefox),
+            :wait => Selenium::WebDriver::Wait.new(:timeout => 10)
+        }
+
+
+        # @url = "https://" + hostname
+        # @driver = Selenium::WebDriver.for :firefox
+        # @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
     end
 
     def login_page
         # working on the assumption that the page should know
         # the required URL.. maybe check as part of init?
-        LoginPage.new @url, @driver
+        LoginPage.new @params #@url, @driver, @wait
     end
 
     def estimate_appointment

@@ -29,13 +29,12 @@ class WorkflowController
 
     def find_workflow type
         puts "finding workflow type"
-        test = nil
 
         types = {
             "login" => Login.new
         }
 
-        return types[type]
+        return types[type] || Workflow.new
     end
 
 end

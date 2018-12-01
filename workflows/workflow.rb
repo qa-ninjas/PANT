@@ -3,12 +3,14 @@ require_relative "../users/user"
 
 class Workflow
   def initialize
- 
+    if self.class == Workflow
+      puts "A workflow was specified that was not recognized"
+    end
   end
 
   def setup  user:, hostname:, input:
     @input = input
-    @controller = PagesCollection.new(hostname)
+    @controller = PagesCollection.new("https://" + hostname)
     @user = User.new(user[:username], user[:password], @controller)
 
   end

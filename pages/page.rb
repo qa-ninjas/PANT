@@ -5,6 +5,10 @@ class Page
         @driver = driver
         @wait = wait
     end
+
+    def title
+        @driver.title
+    end
 end
 
 # probably a good place for things like "elementExists?"" methods

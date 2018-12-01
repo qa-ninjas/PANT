@@ -12,8 +12,8 @@ class Workflow
     @input = input
     @controller = PagesCollection.new(hostname)
     @user = User.new(user[:username], user[:password], @controller)
-
   end
+  
   def pre_run
     puts "settingup workflow for #{@user.to_s}..."
     ## not sure if we need this, standardized logging for begining a test?

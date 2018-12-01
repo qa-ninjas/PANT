@@ -10,14 +10,21 @@ class Login < Workflow
     # better left as two separate tests run in series?
     # could be reasonable that any one test must be one user only
     # and we could come up with a clever way to string em together.
-   
-    def pre_run
-        super
-        #workflow specific startup
-    end
 
     def run
         super
         @user.login
+        page = @user.current_page
+
+        if(page.title.include? @input[:title])
+            ##included for testing 
+            raise StandardError, "Sales User!"
+        end
     end
+
+    def post_run
+        
+        super
+    end
+
 end

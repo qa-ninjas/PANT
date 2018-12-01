@@ -8,10 +8,15 @@ class PagesCollection
     attr_reader :wait, :driver, :host_name
 
     def initialize hostname
+
+        @url = "https://" + hostname
+        @driver = Selenium::WebDriver.for :firefox
+        @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+
         @params = {
-            :url => "https://" + hostname,
-            :driver => (Selenium::WebDriver.for :firefox),
-            :wait => Selenium::WebDriver::Wait.new(:timeout => 10)
+            :url => @url,
+            :driver => @driver,
+            :wait => @wait
         }
 
 
@@ -31,4 +36,7 @@ class PagesCollection
         page.start
     end
 
+    def tear_down
+        @driver.quit
+    end
 end

@@ -23,4 +23,9 @@ class Workflow
     puts "running workflow for #{@user.to_s}"
   end
 
+  def post_run
+    puts "Cleaning up run for #{@user}"
+    @controller.tear_down
+  end
+
 end

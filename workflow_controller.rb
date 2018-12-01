@@ -9,8 +9,6 @@ class WorkflowController
     end
 
     def run_workflows
-        ## maybe implement a way to check if user is blank, and use a previous user if none is given for
-        # a subsequent command
         current_user = nil
 
         @commands.each do |command|
@@ -22,7 +20,7 @@ class WorkflowController
             current_user = command[:user] if command[:user]
             workflow.setup(:user => current_user, :input => command[:input], :hostname => @hostname)
             workflow.run
-
+            workflow.post_run
         end
     end
 

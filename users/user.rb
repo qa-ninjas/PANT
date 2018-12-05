@@ -13,9 +13,9 @@ class User
     end
 
     def login
-        puts "user #{self.to_s} is trying to log into #{@pages_collection.host_name}"
+        puts "user #{self.to_s} is trying to log into #{@pages_collection.url}"
         login_page = @pages_collection.login_page
-        @current_page =login_page 
+        @current_page = login_page 
       #  sleep(3)
         login_page.enter_username @username
         login_page.enter_password @password

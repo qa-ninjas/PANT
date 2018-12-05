@@ -5,7 +5,7 @@ require "selenium-webdriver"
 class PagesCollection
     # maybe this can be a module?
     # might not need anything besides ref to pages
-    attr_reader :wait, :driver, :host_name
+    attr_reader :wait, :driver, :url
 
     def initialize hostname
 

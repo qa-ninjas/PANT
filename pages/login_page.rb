@@ -32,5 +32,9 @@ class LoginPage < Page
     def submit_form
         puts "pushes the login button"
         click_button LOGIN_BUTTON
+        
+        if (current_path == "/sessions")
+            raise StandardError, "Couldn't Log In"
+        end
     end
 end

@@ -10,6 +10,12 @@ class Page
         @driver.title
     end
 
+    def current_path
+        uri = URI @driver.current_url
+        uri.path
+    end
+
+
     def send_keys_to_element elem_identifier, string_to_send
         elem = @driver.find_element(elem_identifier)
         elem.send_keys string_to_send

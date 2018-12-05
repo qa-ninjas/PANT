@@ -2,7 +2,7 @@
 class User
     # include page_collection do i need this? require/include..
     # i think i dont but lets see
-    attr_accessor :current_page
+    attr_reader :current_page
 
     def initialize  username, password, pages_collection
         @username = username

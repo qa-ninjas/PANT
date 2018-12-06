@@ -1,21 +1,34 @@
 require_relative './pages/login_page'
 require_relative './pages/sales_page'
+require "selenium-webdriver"
 
 class PagesCollection
     # maybe this can be a module?
     # might not need anything besides ref to pages
-    attr_reader :wait, :driver, :host_name
+    attr_reader :wait, :driver, :url
 
     def initialize hostname
-        @host_name = hostname
+
         @url = "https://" + hostname
-        @driver = "selenium driver"
+        @driver = Selenium::WebDriver.for :firefox
+        @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+
+        @params = {
+            :url => @url,
+            :driver => @driver,
+            :wait => @wait
+        }
+
+
+        # @url = "https://" + hostname
+        # @driver = Selenium::WebDriver.for :firefox
+        # @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
     end
 
     def login_page
         # working on the assumption that the page should know
         # the required URL.. maybe check as part of init?
-        LoginPage.new @url, @driver
+        LoginPage.new @params #@url, @driver, @wait
     end
 
     def estimate_appointment
@@ -23,4 +36,7 @@ class PagesCollection
         page.start
     end
 
+    def tear_down
+        @driver.quit
+    end
 end

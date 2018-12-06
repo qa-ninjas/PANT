@@ -37,4 +37,3 @@ workflow_controller = WorkflowController.new(workflows: workflows)
 
 puts "running workflows"
 workflow_controller.run_workflows
-

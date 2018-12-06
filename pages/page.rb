@@ -1,8 +1,30 @@
 class Page
     attr_accessor :url
-    def initialize url, driver
+    def initialize url:, driver:, wait:
         @url = url
         @driver = driver
+        @wait = wait
+    end
+
+    def title
+        @driver.title
+    end
+
+    def current_path
+        uri = URI @driver.current_url
+        uri.path
+    end
+
+
+    def send_keys_to_element elem_identifier, string_to_send
+        elem = @driver.find_element(elem_identifier)
+        elem.send_keys string_to_send
+        #selenium will raise a Selenium::WebDriver::Error::NoSuchElementError if not found
+    end
+
+    def click_button button_identifier
+        button = @driver.find_element button_identifier
+        button.click
     end
 end
 

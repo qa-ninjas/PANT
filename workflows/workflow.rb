@@ -10,10 +10,10 @@ class Workflow
 
   def setup  user:, hostname:, input:
     @input = input
-    @controller = PagesCollection.new("https://" + hostname)
+    @controller = PagesCollection.new(hostname)
     @user = User.new(user[:username], user[:password], @controller)
-
   end
+
   def pre_run
     puts "settingup workflow for #{@user.to_s}..."
     ## not sure if we need this, standardized logging for begining a test?
@@ -21,6 +21,11 @@ class Workflow
 
   def run
     puts "running workflow for #{@user.to_s}"
+  end
+
+  def post_run
+    puts "Cleaning up run for #{@user}"
+    @controller.tear_down
   end
 
 end

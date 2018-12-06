@@ -6,6 +6,6 @@ class NewCorporateEventPage < Page
         super
         @path = "/corporate_events/new"
         puts "navigating to New Corporate Event page if not here"
-        @driver.get @url + @path
+        go_to @url + @path
     end
 end

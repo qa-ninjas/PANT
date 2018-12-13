@@ -1,4 +1,3 @@
-require_relative "../pages/page_builder"
 require_relative "../users/user"
 
 class Workflow
@@ -8,10 +7,9 @@ class Workflow
     end
   end
 
-  def setup  user:, hostname:, input:
+  def setup  user:, input:
     @input = input
-    @controller = PageBuilder.new(hostname)
-    @user = User.new(user[:username], user[:password], @controller)
+    @user = user
   end
 
   def pre_run
@@ -25,7 +23,7 @@ class Workflow
 
   def post_run
     puts "Cleaning up run for #{@user}"
-    @controller.tear_down
+    @user.tear_down
   end
 
 end

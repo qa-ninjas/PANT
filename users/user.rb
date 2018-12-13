@@ -4,17 +4,19 @@ class User
     # i think i dont but lets see
     attr_reader :current_page
 
-    def initialize  username, password, pages_collection
+    attr_accessor :controller
+
+    def initialize  username:, password:, page_builder:
         @username = username
         @password = password
 
-        @pages_collection = pages_collection
+        @page_builder = page_builder
         @current_page = nil
     end
 
     def login
-        puts "user #{self.to_s} is trying to log into #{@pages_collection.url}"
-        login_page = @pages_collection.login_page
+        puts "user #{self.to_s} is trying to log into #{@page_builder.url}"
+        login_page = @page_builder.login_page
         @current_page = login_page 
       #  sleep(3)
         login_page.enter_username @username
@@ -34,6 +36,10 @@ class User
             a.delete_at(1)
             a.map{ |n| n.capitalize }.join(' ')
         end
+    end
+
+    def tear_down
+        @page_builder.tear_down
     end
 
 end

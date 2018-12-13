@@ -23,7 +23,7 @@ class Workflow
 
   def post_run
     puts "Cleaning up run for #{@user}"
-    @user.tear_down
+    ##may need to logout here, or do a check to determine if same user for next test?
   end
 
 end

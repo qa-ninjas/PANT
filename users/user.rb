@@ -4,8 +4,6 @@ class User
     # i think i dont but lets see
     attr_reader :current_page
 
-    attr_accessor :controller
-
     def initialize  username:, password:, page_builder:
         @username = username
         @password = password

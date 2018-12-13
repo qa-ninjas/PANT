@@ -7,7 +7,9 @@ class CreateCorporateEvent
         super
         @user.login
 
-        @user.create_event
+        @user.create_event @input
+
+        
     end
 
 

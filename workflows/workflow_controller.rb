@@ -1,4 +1,5 @@
 require_relative "./login"
+require_relative "./create_corporate_event"
 require_relative "./workflow"
 require_relative "../users/user_builder"
 require_relative "../pages/page_builder"
@@ -17,18 +18,16 @@ class WorkflowController
 
         @commands.each do |command|
             begin
+                puts command[:workflow]
                 workflow = find_workflow(command[:workflow])
                 puts workflow
 
                 # first command must have a user
                 # subsequent commands will use previous user
-                current_user = build_user_from_input ({:user_info => command[:user], :page_builder => @page_builder}) if command[:user]
+                current_user = build_user_from_input user_info: command[:user], page_builder: @page_builder if command[:user]
                 workflow.setup(:user => current_user, :input => command[:input])
                 workflow.run
-            rescue => error
-                p error
-            ensure
-
+                
                 puts "Post Run!"
                 workflow.post_run
             end
@@ -44,10 +43,12 @@ class WorkflowController
         puts "finding workflow type"
 
         types = {
-            "login" => Login.new
+            "login": Login.new,
+            "create_corp_event": CreateCorporateEvent.new
         }
 
-        return types[type] || Workflow.new
+        return types[type.intern] || Workflow.new
     end
+
 
 end

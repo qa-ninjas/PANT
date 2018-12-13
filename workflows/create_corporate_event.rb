@@ -1,7 +1,7 @@
 
 require_relative "./workflow.rb"
 
-class CreateCorporateEvent
+class CreateCorporateEvent < Workflow
 
     def run
         super

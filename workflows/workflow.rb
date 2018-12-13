@@ -1,4 +1,4 @@
-require_relative "../pages_collection"
+require_relative "../pages/page_builder"
 require_relative "../users/user"
 
 class Workflow
@@ -10,7 +10,7 @@ class Workflow
 
   def setup  user:, hostname:, input:
     @input = input
-    @controller = PagesCollection.new(hostname)
+    @controller = PageBuilder.new(hostname)
     @user = User.new(user[:username], user[:password], @controller)
   end
 

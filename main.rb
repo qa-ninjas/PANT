@@ -4,7 +4,7 @@
 require 'io/console'
 require 'json'
 require_relative './workflows/login'
-require_relative 'workflow_controller.rb'
+require_relative './workflows/workflow_controller.rb'
 
 file = ARGV.first
 

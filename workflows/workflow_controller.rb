@@ -1,5 +1,5 @@
-require_relative "./workflows/login"
-require_relative "./workflows/workflow"
+require_relative "./login"
+require_relative "./workflow"
 
 class WorkflowController
 

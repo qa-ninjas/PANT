@@ -3,7 +3,10 @@ module CorporateEventPermission
 
     def create_event input 
         puts "Creating event..."
-    end
 
+        input.each  do |elem|
+            puts elem
+        end
+    end
 
 end

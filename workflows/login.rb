@@ -6,8 +6,8 @@ class Login < Workflow
     def run
         super
         @user.login
-        page = @user.current_page
-
+        
+        #page = @user.current_page
         # this was included to test the "Begin... Ensure " bit of the workflow controller
         # if(page.title.include? @input[:title])
         #     ##included for testing 

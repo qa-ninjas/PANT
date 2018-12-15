@@ -25,9 +25,9 @@ class WorkflowController
                 # first command must have a user
                 # subsequent commands will use previous user
                 current_user = build_user_from_input user_info: command[:user], page_builder: @page_builder if command[:user]
-                workflow.setup(:user => current_user, :input => command[:input])
+                workflow.setup(user: current_user, input: command[:input])
                 workflow.run
-                
+
                 puts "Post Run!"
                 workflow.post_run
             end

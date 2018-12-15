@@ -1,4 +1,3 @@
-require_relative "./permissioned_user"
 require_relative "./user"
 require_relative "./corporate_event_permission"
 

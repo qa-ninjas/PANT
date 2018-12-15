@@ -36,8 +36,8 @@ class User
         end
     end
 
-    def tear_down
-        @page_builder.tear_down
-    end
+    # def tear_down
+    #     @page_builder.tear_down
+    # end
 
 end

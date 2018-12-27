@@ -4,7 +4,11 @@ class NewCorporateEventPage < Page
     # UI MAPPING
     NAME_FIELD =   { id: "corporate_event_name"}
     DESTINATION_FIELD =   { id: "corporate_event_destination"}
+<<<<<<< HEAD
     VENUE_SELECT2 =   { id: "s2id_corporate_event_venue_id"}
+=======
+    VENUE_SELECT =   { class: "select2-choice select2-default"}
+>>>>>>> added UI Mapping for the Corporate Events/new page
 
     # DATE PICKERS
     REGISTRATION_START_DATE_PICKER =   { id: "corporate_event_registration_start_date"}
@@ -53,6 +57,7 @@ class NewCorporateEventPage < Page
         navigate_to @url + @path
     end
 
+<<<<<<< HEAD
     def enter_event_name name
         ##should we do validation here? or let the page fail and catch it there?
         send_keys_to_element(NAME_FIELD, name)
@@ -129,5 +134,7 @@ class NewCorporateEventPage < Page
 
     def cancel_save
     end
+=======
+>>>>>>> added UI Mapping for the Corporate Events/new page
 
 end

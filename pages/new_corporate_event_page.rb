@@ -50,7 +50,7 @@ class NewCorporateEventPage < Page
         super
         @path = "/corporate_events/new"
         puts "navigating to New Corporate Event page if not here"
-        go_to @url + @path
+        navigate_to @url + @path
     end
 
     def enter_event_name name

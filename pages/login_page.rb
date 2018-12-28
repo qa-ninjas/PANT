@@ -13,7 +13,7 @@ class LoginPage < Page
     def initialize url:, driver:, wait:
         super
         puts "navigating to login page if not here"
-        go_to @url
+        navigate_to @url
     end
 
     # enters the password in the password field

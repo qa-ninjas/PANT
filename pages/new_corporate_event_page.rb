@@ -53,5 +53,80 @@ class NewCorporateEventPage < Page
         go_to @url + @path
     end
 
+    def enter_event_name name
+
+    end
+
+    def enter_destination destination
+
+    end
+
+    def select_venue venue
+
+    end
+
+    def enter_registration_start_date date
+        
+    end 
+
+    def enter_registration_end_date date
+
+    end
+
+    def enter_updates_until_date date
+
+    end
+
+    def enter_show_at_date date
+
+    end
+
+    def enter_hide_at_date date
+
+    end
+
+    def select_time_zone time_zone
+
+    end
+
+    def enter_leading_space leading_space
+    end
+
+    def select_lead_coordiation lead_coordinator
+    end
+
+    def select_associate_coordinators associate_coordinators
+    end
+
+    def select_preview_users preview_users
+    end
+
+    def select_nominators nominators 
+        ## STUB FOR NOW
+    end
+
+    def enable_attendies_can_choose_checkbox
+    end
+
+    def enable_active_checkbox
+    end
+
+    def enable_open_signup_checkbox
+    end
+
+    def enable_requires_flight_info_checkbox
+    end
+
+    def upload_bg_images images 
+    end
+
+    def input_connect_colors :text, :divider, :highlight, :background
+    end
+
+    def save_event
+    end
+
+    def cancel_save
+    end
 
 end

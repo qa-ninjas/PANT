@@ -15,6 +15,10 @@ class Page
         uri.path
     end
 
+    def navigate_to url
+        @driver.get url
+    end
+
 
     def send_keys_to_element elem_identifier, string_to_send
         elem = @driver.find_element(elem_identifier)

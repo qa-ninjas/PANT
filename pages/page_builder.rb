@@ -1,8 +1,8 @@
-require_relative './pages/login_page'
-require_relative './pages/sales_page'
+require_relative './login_page'
+require_relative './sales_page'
 require "selenium-webdriver"
 
-class PagesCollection
+class PageBuilder
     # maybe this can be a module?
     # might not need anything besides ref to pages
     attr_reader :wait, :driver, :url

@@ -15,7 +15,7 @@ class Page
         uri.path
     end
 
-    def go_to url
+    def navigate_to url
         @driver.get url
     end
 

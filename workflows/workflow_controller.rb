@@ -1,6 +1,9 @@
+
+require_relative "./workflow"
 require_relative "./login"
 require_relative "./create_corporate_event"
-require_relative "./workflow"
+require_relative "./add_home"
+
 require_relative "../users/user_builder"
 require_relative "../pages/page_builder"
 
@@ -44,6 +47,7 @@ class WorkflowController
 
         types = {
             "login": Login.new,
+            "add_home": AddHome.new,
             "create_corp_event": CreateCorporateEvent.new
         }
 

@@ -2,7 +2,10 @@
 class User
     # include page_collection do i need this? require/include..
     # i think i dont but lets see
-    attr_reader :current_page
+
+    # andrew: I included the page_builder as a read only class variable. Is there a better way
+    #         of going about this? Got confused when adding the 'add home' functionality
+    attr_reader :current_page, :page_builder
 
     def initialize username:, password:, page_builder:
         @username = username

@@ -27,7 +27,7 @@ else
 
     print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
     hostname = gets.chomp
-    commands = [{:workflow => "login", :user => user, :input => input}]
+    commands = [{:workflow => "add_home", :user => user, :input => input}]
     workflows = {:hostname => hostname, :commands => commands}
 end
 

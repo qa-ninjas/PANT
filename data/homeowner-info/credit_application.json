@@ -1,0 +1,41 @@
+{
+    "applicant":{
+        "ssn": "2222222222",
+        "dob": "01/01/1970",
+        "state_id": {
+            "state_id_num": "123456",
+            "state_abrv": "NJ",
+            "issue_date": "01/01/2018",
+            "exp_date": "01/01/2023"
+        },
+        "email": "selenium_test@gmail.com",
+        "employed": {
+            "employer": "QA Testers Inc",
+            "position": "QA Ninja",
+            "start_date": "01/01/1995",
+            "phone": "8669306480",
+            "income": "4000"
+        },
+        "monthly_payment": "1200"
+    },
+
+    "co-applicant": {
+        "ssn": "2222222222",
+        "dob": "01/01/1970",
+        "state_id": {
+            "state_id_num": "123456",
+            "state_abrv": "NJ",
+            "issue_date": "01/01/2018",
+            "exp_date": "01/01/2023"
+        },
+        "email": "selenium_test@gmail.com",
+        "employed": {
+            "employer": "QA Testers Inc",
+            "position": "QA Ninja",
+            "start_date": "01/01/1995",
+            "phone": "8669306480",
+            "income": "4000"
+        },
+        "monthly_payment": "1200"
+    }
+}

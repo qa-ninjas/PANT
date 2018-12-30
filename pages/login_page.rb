@@ -1,8 +1,6 @@
 require_relative "./page.rb"
 # would deal with anny assertions, logging, etc
 
-
-
 class LoginPage < Page
     # UI MAPPING
     USERNAME_FIELD = { :name => "email"}

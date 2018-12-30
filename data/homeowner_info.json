@@ -1,0 +1,17 @@
+{
+    "co_flag": true,
+    "owner_one": {
+      "first_name": "Another",
+      "last_name": "Testman",
+      "phone_number": "8888888888",
+      "email": "test@gmail.com"
+    },
+    "owner_two": {
+      "first_name": "Cool",
+      "last_name": "testman",
+      "phone_number": "8888888888",
+      "email": "ingsoc_iz_gr8@gmail.com"
+    },
+    "zip": "08002",
+    "address": "1234 main street"
+}

@@ -1,5 +1,7 @@
 class Page
-    attr_accessor :url
+    
+    attr_reader :url, :driver, :wait
+
     def initialize url:, driver:, wait:
         @url = url
         @driver = driver
@@ -26,10 +28,13 @@ class Page
         #selenium will raise a Selenium::WebDriver::Error::NoSuchElementError if not found
     end
 
+    # a lot of the buttons require a wait clause to work. Should this be a separate method called "click_button_with_wait" ? 
+    # Thiw could also be simplified to one line in regular 
     def click_button button_identifier
         button = @driver.find_element button_identifier
         button.click
     end
+
 end
 
 # probably a good place for things like "elementExists?"" methods

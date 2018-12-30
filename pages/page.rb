@@ -25,26 +25,39 @@ class Page
     end
 
 
-    def send_keys_to_element elem_identifier, string_to_send
-        elem = @driver.find_element(elem_identifier)
-        elem.send_keys string_to_send
+    def send_keys_to_element element_identifier, string_to_send
+        element = @driver.find_element(element_identifier)
+        element.send_keys string_to_send
         #selenium will raise a Selenium::WebDriver::Error::NoSuchElementError if not found
     end
 
     def click_button button_identifier
-        button = @driver.find_element button_identifier
+        button = @wait.until{ @driver.find_element button_identifier }
+        button.click
+    end
+
+    # 
+    #   click_button_at_position:     clicks a button at the nth element of an array of buttons
+    # 
+    #   inputs:        button_identifier        - Selenium element set to the scroll wheel
+    #                  index                    - index of the HTML element to select
+    #
+    #   throws:        ArgumentError  - when the element given is **not** a selector
+    def click_button_at_position button_identifier, index
+        button = @wait.until{ @driver.find_elements(button_identifier)[index] }
         button.click
     end
 
     # 
     #   scroll_by_index:     takes a scroll wheel and selects at the index in the selector
     # 
-    #   inputs:        element        - Selenium element set to the scroll wheel
-    #                  element_index  - index of the HTML element to select
+    #   inputs:        element_identifier   - Hash for element's {:how => "what"}
+    #                  element_index        - index of the HTML element to select
     #
     #   throws:        ArgumentError  - when the element given is **not** a selector
-    def scroll_by_index element, element_index
+    def scroll_by_index element_identifier, element_index
         begin
+            element = @wait.until{ @driver.find_element element_identifier }
             option = Selenium::WebDriver::Support::Select.new( element )
             option.select_by :index, element_index
         rescue ArgumentError
@@ -55,12 +68,13 @@ class Page
     # 
     #   scroll_by_value:     takes a scroll wheel and selects a given option in the selector
     # 
-    #   inputs:        element        - Selenium element set to the scroll wheel
-    #                  element_value  - Name of the item in the selector
+    #   inputs:        element_identifier   - Hash for element's {:how => "what"}
+    #                  element_value        - Name of the item in the selector
     #
     #   throws:        ArgumentError  - when the element given is **not** a selector
-    def scroll_by_value element, element_value
+    def scroll_by_value element_identifier, element_value
         begin
+            element = @wait.until{ @driver.find_element element_identifier }
             option = Selenium::WebDriver::Support::Select.new( element )
             option.select_by :value, element_value
         rescue ArgumentError
@@ -70,8 +84,9 @@ class Page
 
     #
     #   scroll_into_view:       Takes an element and displays it on-screen if said element would be not clickable
-    #   inputs:                 element        - Selenium element that is out of view
-    def scroll_into_view element
+    #   inputs:                 element_identifier        - Hash for element's {:how => "what"}
+    def scroll_into_view element_identifier
+        element = @driver.find_element element_identifier
         @driver.execute_script "window.scrollBy(0,document.body.scrollHeight)", element
     end
 
@@ -93,11 +108,11 @@ class Page
     # 
     #   element_present:       checks the page to see if an element exists.
     # 
-    #   inputs:        element         - hash {:how => "what"} the selector type and its value
+    #   inputs:    element_identifier  - hash {:how => "what"} the selector type and its value
     #
     #   returns:                         true if found false if not there
-    def element_present? element
-        @driver.find_elements(element).length > 0
+    def element_present? element_identifier
+        @driver.find_elements(element_identifier).length > 0
     end
 
     # 
@@ -110,8 +125,3 @@ class Page
 	end
 
 end
-
-# probably a good place for things like "elementExists?"" methods
-# actions that youd want to perform on any page
-# maybe even as broken down as .click(Element)
-# not sure about that, need to learn selenium still

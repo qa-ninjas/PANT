@@ -1,6 +1,6 @@
-module CorporateEventPermission
+module AddHomePermission
 
-    def create_event input 
+    def add_home input 
         puts "Creating event..."
 
         input.each  do |elem|

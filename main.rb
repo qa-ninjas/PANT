@@ -25,6 +25,9 @@ else
     print "Password: "
     user[:password] = STDIN.noecho(&:gets)
 
+    print "Permissions: (hardcoded for now) "
+    user[:permissions] = ["AddHome", "CorporateEvent"]
+
     print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
     hostname = gets.chomp
     commands = [{:workflow => "add_home", :user => user, :input => input}]

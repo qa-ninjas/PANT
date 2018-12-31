@@ -15,6 +15,7 @@ class AddHome < Workflow
     def run
         data = JSON.parse(File.read(Dir.pwd + "/data/homeowner_info.json"), :symbolize_names => true)
         @user.login
+        @user.print_permissions
 
         screen  = @user.page_builder.new_homes_page
         screen.add_home_data data[:zip], data[:address]

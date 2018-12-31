@@ -39,4 +39,8 @@ class User
         end
     end
 
+    def print_permissions
+        print "Permissions: #{self.permissions.join(" ")}\n"
+    end
+
 end

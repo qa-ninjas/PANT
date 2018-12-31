@@ -41,8 +41,6 @@ class Page
     # 
     #   inputs:        button_identifier        - Selenium element set to the scroll wheel
     #                  index                    - index of the HTML element to select
-    #
-    #   throws:        ArgumentError  - when the element given is **not** a selector
     def click_button_at_position button_identifier, index
         button = @wait.until{ @driver.find_elements(button_identifier)[index] }
         button.click

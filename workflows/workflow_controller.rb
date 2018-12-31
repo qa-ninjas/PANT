@@ -34,9 +34,8 @@ class WorkflowController
                 puts "Post Run!"
                 workflow.post_run
             end
-
-    
         end
+        
     ensure 
         @page_builder.tear_down
     end

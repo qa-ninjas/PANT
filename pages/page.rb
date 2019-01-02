@@ -30,6 +30,11 @@ class Page
         button = @driver.find_element button_identifier
         button.click
     end
+
+    def choose_from_select2_single select2_identifier, choice
+        select2 = @driver.find_element(select2_identifier)
+        
+    end
 end
 
 # probably a good place for things like "elementExists?"" methods

@@ -1,4 +1,5 @@
 require_relative "./page.rb"
+
 # would deal with any assertions, logging, etc
 
 class LoginPage < Page

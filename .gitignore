@@ -2,7 +2,7 @@
 input.json
 login_input.json
 corp_event_input.json
-<<<<<<< HEAD
+notes.txt
 testbed.rb
 
 # Mac
@@ -13,7 +13,3 @@ testbed.rb
 
 # Editor
 .vscode/*
-=======
-
-notes.txt
->>>>>>> changes

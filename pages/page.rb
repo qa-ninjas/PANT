@@ -36,6 +36,7 @@ class Page
         button = @wait.until{ @driver.find_element button_identifier }
         button.click
     end
+end
 
     # 
     #   click_button_at_position:     clicks a button at the nth element of an array of buttons

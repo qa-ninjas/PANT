@@ -4,7 +4,6 @@ class NewCorporateEventPage < Page
     # UI MAPPING
     NAME_FIELD =   { id: "corporate_event_name"}
     DESTINATION_FIELD =   { id: "corporate_event_destination"}
-
     VENUE_SELECT2 =   { id: "s2id_corporate_event_venue_id"}
 
     # DATE PICKERS
@@ -130,4 +129,8 @@ class NewCorporateEventPage < Page
 
     def cancel_save
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc0e1fd80eacb4cecd1102df542b98bf29f61a56
 end

@@ -34,8 +34,7 @@ class PageBuilder
     end
 
     def new_homes_page
-        # should these be hard-coded, stored somewhere, or am I missing something?
-        @params[:url] += "/home_owners/new"
+        # @params[:url] += "/home_owners/new"
         NewHomesPage.new @params
     end
 

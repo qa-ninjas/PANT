@@ -21,6 +21,7 @@ class NewHomesPage < Page
     def initialize url:, driver:, wait:
         super
         puts "navigating to new homeowner info page"
+        @url += "/home_owners/new"
         navigate_to @url
     end
 
@@ -69,7 +70,7 @@ class NewHomesPage < Page
 
     def submit_home
         puts "submitting the form"
-        element = wait.until{ driver.find_element(SUBMIT_BUTTON) }
+        element = @wait.until{ @driver.find_element(SUBMIT_BUTTON) }
         element.click
     end
 

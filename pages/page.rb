@@ -3,7 +3,6 @@ require 'json'
 class Page
 
     attr_accessor :url
-    attr_reader :wait
 
     def initialize url:, driver:, wait:
         @url = url

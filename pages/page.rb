@@ -31,10 +31,17 @@ class Page
         #selenium will raise a Selenium::WebDriver::Error::NoSuchElementError if not found
     end
 
+    # a lot of the buttons require a wait clause to work. Should this be a separate method called "click_button_with_wait" ? 
+    # Thiw could also be simplified to one line in regular 
     def click_button button_identifier
         button = @wait.until{ @driver.find_element button_identifier }
         button.click
     end
+<<<<<<< HEAD
+=======
+
+end
+>>>>>>> testing adding a home
 
     # 
     #   click_button_at_position:     clicks a button at the nth element of an array of buttons

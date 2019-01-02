@@ -107,6 +107,8 @@ end
     #
     #   scroll_into_view:       Takes an element and displays it on-screen if said element would be not clickable
     #   inputs:                 element_identifier        - Hash for element's {:how => "what"}
+    #     !!! this may just be scrolling hte page to the bottom
+    #           Serving its purpose now, but may need revisiting
     def scroll_into_view element_identifier
         element = @driver.find_element element_identifier
         @driver.execute_script "window.scrollBy(0,document.body.scrollHeight)", element
@@ -121,6 +123,7 @@ end
     #   returns:                         hash of the json file 
     #
     #   throws:        ArgumentError   - when file not found
+    #   !!! This should likely be moved elsewhere, some type of helper for input-getting
     def get_input_json_data filename
         filename = Dir.pwd + "/data/" + filename
         raise ArgumentError, "#{filename} not a valid file" unless File.file? filename 

@@ -40,7 +40,7 @@ class Page
 
     #   click_button:              clicks a button
     # 
-    #   inputs:        button_identifier        - Selenium element set to the scroll wheel
+    #   inputs:        button_identifier        - Button to be clicked
     #
     def click_button button_identifier
         button = @wait.until{ @driver.find_element button_identifier }
@@ -55,8 +55,12 @@ class Page
     #
     #   docs: https://select2.org/
     def choose_from_select2 select2_identifier, choice
-        select2 = @driver.find_element(select2_identifier)
-        
+        #Find and click the select2 element
+        @driver.find_element(select2_identifier).click
+        #Find and type into the input box, and entering the given choice
+        @driver.find_element(id: "s2id_autogen1_search").send_keys choice
+        #Find and click the first result after typing in given value
+        @driver.find_element(css: "#select2-results-1 .select2-result-label").click 
     end
 
     # 

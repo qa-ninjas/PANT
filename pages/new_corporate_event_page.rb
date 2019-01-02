@@ -62,7 +62,6 @@ class NewCorporateEventPage < Page
     end
 
     def enter_event_name name
-        ##should we do validation here? or let the page fail and catch it there?
         send_keys_to_element(NAME_FIELD, name)
     end
 

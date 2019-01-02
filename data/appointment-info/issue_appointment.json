@@ -1,0 +1,11 @@
+{
+    "home_ids": [null],
+    "issue_appts": false,
+    "set_today": true,
+    "zip" : "08002",
+    "schedule_number": 1,
+    "appointment_time": "09:00",
+    "marketer": "1233",
+    "scheduler": "1233",
+    "product_interests": [2,3]
+    }

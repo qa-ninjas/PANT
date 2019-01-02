@@ -16,7 +16,7 @@ class Login < Workflow
     end
 
     def post_run
-        sleep(3)
+        sleep 3
         #added so login can be verified, closed instantly otherwise
         super
     end

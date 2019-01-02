@@ -7,14 +7,6 @@ class CreateCorporateEvent < Workflow
         super
         @user.login
 
-        @user.create_event @input
-
-        
+        @user.create_event @input      
     end
-
-
-
-
-
-
 end

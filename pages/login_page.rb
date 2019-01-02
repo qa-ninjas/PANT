@@ -1,5 +1,6 @@
 require_relative "./page.rb"
-# would deal with anny assertions, logging, etc
+
+# would deal with any assertions, logging, etc
 
 class LoginPage < Page
     # UI MAPPING

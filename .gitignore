@@ -1,6 +1,15 @@
-
+# Files
 input.json
 login_input.json
 corp_event_input.json
-
 notes.txt
+testbed.rb
+
+# Mac
+.DS_Store
+
+# Filetypes
+*.txt
+
+# Editor
+.vscode/*

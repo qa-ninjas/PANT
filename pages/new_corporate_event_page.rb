@@ -4,7 +4,7 @@ class NewCorporateEventPage < Page
     # UI MAPPING
     NAME_FIELD =   { id: "corporate_event_name"}
     DESTINATION_FIELD =   { id: "corporate_event_destination"}
-    VENUE_SELECT =   { class: "select2-choice select2-default"}
+    VENUE_SELECT2 =   { id: "s2id_corporate_event_venue_id"}
 
     # DATE PICKERS
     REGISTRATION_START_DATE_PICKER =   { id: "corporate_event_registration_start_date"}
@@ -54,15 +54,16 @@ class NewCorporateEventPage < Page
     end
 
     def enter_event_name name
-
+        ##should we do validation here? or let the page fail and catch it there?
+        send_keys_to_element(NAME_FIELD, name)
     end
 
     def enter_destination destination
-
+        send_keys_to_element(DESTINATION_FIELD, destination)
     end
 
     def select_venue venue
-
+        choose_from_select2(VENUE_SELECT2, venue)
     end
 
     def enter_registration_start_date date

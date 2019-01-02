@@ -36,6 +36,12 @@ class Page
         button.click
     end
 
+    def choose_from_select2_single select2_identifier, choice
+        select2 = @driver.find_element(select2_identifier)
+        
+    end
+end
+
     # 
     #   click_button_at_position:     clicks a button at the nth element of an array of buttons
     # 

@@ -53,6 +53,14 @@ class NewCorporateEventPage < Page
         navigate_to @url + @path
     end
 
+    def build_event input
+        puts input
+        enter_event_name input[:event_name]
+        enter_destination input[:destination]
+        select_venue input[:venue]
+        sleep 3
+    end
+
     def enter_event_name name
         ##should we do validation here? or let the page fail and catch it there?
         send_keys_to_element(NAME_FIELD, name)
@@ -67,7 +75,7 @@ class NewCorporateEventPage < Page
     end
 
     def enter_registration_start_date date
-        
+       #stub 
     end 
 
     def enter_registration_end_date date
@@ -121,7 +129,8 @@ class NewCorporateEventPage < Page
     def upload_bg_images images 
     end
 
-    def input_connect_colors :text, :divider, :highlight, :background
+    def input_connect_colors text:, divider:, highlight:, background:
+
     end
 
     def save_event
@@ -129,8 +138,5 @@ class NewCorporateEventPage < Page
 
     def cancel_save
     end
-<<<<<<< HEAD
-=======
 
->>>>>>> bc0e1fd80eacb4cecd1102df542b98bf29f61a56
 end

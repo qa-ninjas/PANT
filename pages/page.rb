@@ -54,11 +54,10 @@ class Page
     #                  index                    - index of the HTML element to select
     #
     #   docs: https://select2.org/
-    def choose_from_select2_single select2_identifier, choice
+    def choose_from_select2 select2_identifier, choice
         select2 = @driver.find_element(select2_identifier)
         
     end
-end
 
     # 
     #   click_button_at_position:     clicks a button at the nth element of an array of buttons

@@ -1,20 +1,18 @@
 {
-  "hostname": "test-qa-environment.com",
+  "hostname": "",
   "commands": [
     {
-      "workflow": "login",
+      "workflow": "add_home",
       "user": {
-        "username": "jpinto",
-        "password": "PASSWORD"
+        "username": "",
+        "password": "",
+        "permissions": [
+          "CorporateEvent",
+          "AddHome"
+        ]
       },
       "input": {
-        "other": "unused info"
-      }
-    },
-    {
-      "workflow": "login",
-      "input": {
-        "other": "unused info"
+        "temp": "unused info"
       }
     }
   ]

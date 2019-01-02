@@ -25,6 +25,14 @@ class NewHomesPage < Page
         navigate_to @url
     end
 
+    def create_new_home input, data
+        #screen  = @user.page_builder.new_homes_page
+        add_home_data data[:zip], data[:address]
+        add_homeowner data[:owner_one], 0
+        if data[:co_flag] then add_homeowner(data[:owner_two], 1) end
+        submit_home
+    end
+
     # send_keys_to_element elem_identifier, string_to_send
     def add_homeowner homeowner, num
         driver = @driver

@@ -5,7 +5,7 @@ class User
 
     # andrew: I included the page_builder as a read only class variable. Is there a better way
     #         of going about this? Got confused when adding the 'add home' functionality
-    attr_reader :current_page, :page_builder
+    attr_reader :current_page
 
     def initialize username:, password:, page_builder:
         @username = username
@@ -37,10 +37,6 @@ class User
             a.delete_at(1)
             a.map{ |n| n.capitalize }.join(' ')
         end
-    end
-
-    def print_permissions
-        print "Permissions: #{self.permissions.join(" ")}\n"
     end
 
 end

@@ -15,13 +15,8 @@ class AddHome < Workflow
     def run
         data = JSON.parse(File.read(Dir.pwd + "/data/homeowner_info.json"), :symbolize_names => true)
         @user.login
-        @user.print_permissions
 
-        screen  = @user.page_builder.new_homes_page
-        screen.add_home_data data[:zip], data[:address]
-        screen.add_homeowner data[:owner_one], 0
-        if data[:co_flag] then screen.add_homeowner(data[:owner_two], 1) end
-        screen.submit_home
+        @user.add_home @input, data
     end
 
     def post_run

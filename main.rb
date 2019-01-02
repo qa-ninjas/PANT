@@ -6,9 +6,9 @@ require 'json'
 require_relative './workflows/login'
 require_relative './workflows/workflow_controller.rb'
 
-file = ARGV.first
+file = "./data/test-input.json"
 
-workflows = JSON.parse(File.read(file), :symbolize_names => true) if file
+workflows = JSON.parse(File.read(file), :symbolize_names => true) if File.file? file
 
 if workflows.instance_of?(Hash)
     puts workflows

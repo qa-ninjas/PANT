@@ -37,7 +37,7 @@ module UserBuilder
                 user.class.send :include, Module.const_get(permission + "Permission")
             end
         end
-        
+
     end
 
 end

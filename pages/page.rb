@@ -37,11 +37,6 @@ class Page
         button = @wait.until{ @driver.find_element button_identifier }
         button.click
     end
-<<<<<<< HEAD
-=======
-
-end
->>>>>>> testing adding a home
 
     # 
     #   click_button_at_position:     clicks a button at the nth element of an array of buttons

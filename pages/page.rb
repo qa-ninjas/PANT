@@ -1,5 +1,5 @@
 require 'json'
-
+require "selenium-webdriver"
 class Page
 
     attr_accessor :url
@@ -61,6 +61,9 @@ class Page
         @driver.find_element(id: "s2id_autogen1_search").send_keys choice
         #Find and click the first result after typing in given value
         @driver.find_element(css: "#select2-results-1 .select2-result-label").click 
+    
+    rescue Selenium::WebDriver::Error::NoSuchElementError
+        puts "Couldn't find the given choice for #{select2_identifier}"
     end
 
     # 

@@ -11,31 +11,49 @@ class Page
         @wait = wait
     end
 
+    #   
+    #   returns:       title of the page (Displayed in tab of page)
     def title
         @driver.title
     end
 
+    ##  returns: current PATH of the URL "/homes/new"
     def current_path
         uri = URI @driver.current_url
         uri.path
     end
 
+    ## Equivalent to typing in a new URL
     def navigate_to url
         @driver.get url
     end
-
-
+ 
+    #   send_keys_to_element:     sends the given string to be typed to the element
+    # 
+    #   inputs:        element_identifier        - Hash for element's {:how => "what"}
+    #                  string_to_send            - keys to be sent to element
     def send_keys_to_element element_identifier, string_to_send
         element = @driver.find_element(element_identifier)
         element.send_keys string_to_send
         #selenium will raise a Selenium::WebDriver::Error::NoSuchElementError if not found
     end
 
+    #   click_button:              clicks a button
+    # 
+    #   inputs:        button_identifier        - Selenium element set to the scroll wheel
+    #
     def click_button button_identifier
         button = @wait.until{ @driver.find_element button_identifier }
         button.click
     end
 
+    # 
+    #   choose_from_select2_single:     Chooses the given choice from a select2 form
+    # 
+    #   inputs:        button_identifier        - Selenium element set to the scroll wheel
+    #                  index                    - index of the HTML element to select
+    #
+    #   docs: https://select2.org/
     def choose_from_select2_single select2_identifier, choice
         select2 = @driver.find_element(select2_identifier)
         

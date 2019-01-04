@@ -11,9 +11,7 @@
           "AddHome"
         ]
       },
-      "input": {
-        "temp": "unused info"
-      }
+      "input": "homeowner-info/homeowner_form.json"
     }
   ]
 }

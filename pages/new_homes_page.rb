@@ -25,7 +25,7 @@ class NewHomesPage < Page
         navigate_to @url
     end
 
-    def create_new_home input, data
+    def create_new_home data
         #screen  = @user.page_builder.new_homes_page
         add_home_data data[:zip], data[:address]
         add_homeowner data[:owner_one], 0
@@ -39,32 +39,26 @@ class NewHomesPage < Page
         wait   = @wait
 
         puts "adding homeowner #{ num + 1 }"
-        if num == 1 then driver.find_element(SECOND_HOMEOWNER_ADD).click end
+        if num == 1 then click_button SECOND_HOMEOWNER_ADD end
 
         # input the name
-        driver.find_elements(FIRST_NAME)[num].send_keys homeowner[:first_name]
-        driver.find_elements(LAST_NAME)[num].send_keys homeowner[:last_name]
+        send_keys_to_array_element FIRST_NAME, homeowner[:first_name], num
+        send_keys_to_array_element LAST_NAME, homeowner[:last_name], num
 
         # phone number input
-        driver.find_elements(PHONE_NUMBER)[num].send_keys homeowner[:phone_number]
-        element = driver.find_elements(PHONE_NUMBER_TYPE)[num]
-        option  = Selenium::WebDriver::Support::Select.new element   # this will be changed in a different PR
-        # UI mapping not working here for whatever reason?
-        option.select_by :value, "Home"
+        send_keys_to_array_element PHONE_NUMBER, homeowner[:phone_number], num
+        scroll_by_value nil, "Home", driver.find_elements(PHONE_NUMBER_TYPE)[num]
 
         # email
-        driver.find_elements(OWNER_ADDRESS)[num].send_keys homeowner[:email]
+        send_keys_to_array_element OWNER_ADDRESS, homeowner[:email], num
 
         # waiver
-        driver.find_elements(CALL_WAIVER)[num].click
+        click_button_at_position CALL_WAIVER, num
 
         if num == 1
-            element = driver.find_element(UMMM_FORGOT)
-            option  = Selenium::WebDriver::Support::Select.new(element)
-            # UI mapping not working here for whatever reason?
-            option.select_by :index, 1
-            driver.find_element(COLAPSE).click
-            driver.find_element(CSS_BUTTON).click
+            scroll_by_index UMMM_FORGOT, 1, nil
+            click_button COLAPSE
+            click_button CSS_BUTTON
             sleep 10
         end
 
@@ -79,6 +73,8 @@ class NewHomesPage < Page
     def submit_home
         puts "submitting the form"
         element = @wait.until{ @driver.find_element(SUBMIT_BUTTON) }
+        puts "sleep my child"
+        sleep 1000
         element.click
     end
 

@@ -13,10 +13,10 @@ class AddHome < Workflow
 
     # going to get away from the hardcoded aspect once the other PR hits
     def run
-        data = JSON.parse(File.read(Dir.pwd + "/data/homeowner_info.json"), :symbolize_names => true)
+        data = get_input_json_data @input
         @user.login
 
-        @user.add_home @input, data
+        @user.add_home data
     end
 
     def post_run

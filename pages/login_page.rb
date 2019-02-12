@@ -1,4 +1,5 @@
 require_relative "./page.rb"
+
 # would deal with any assertions, logging, etc
 
 class LoginPage < Page
@@ -31,6 +32,7 @@ class LoginPage < Page
         puts "pushes the login button"
         click_button LOGIN_BUTTON
         
+        # can return errors when logged correctly
         if (current_path == "/sessions")
             raise StandardError, "Couldn't Log In"
         end

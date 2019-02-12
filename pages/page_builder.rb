@@ -1,6 +1,8 @@
+require "selenium-webdriver"
+
 require_relative './login_page'
 require_relative './sales_page'
-require "selenium-webdriver"
+require_relative './new_homes_page'
 
 class PageBuilder
     # maybe this can be a module?
@@ -29,6 +31,11 @@ class PageBuilder
         # working on the assumption that the page should know
         # the required URL.. maybe check as part of init?
         LoginPage.new @params #@url, @driver, @wait
+    end
+
+    def new_homes_page
+        # @params[:url] += "/home_owners/new"
+        NewHomesPage.new @params
     end
 
     def estimate_appointment

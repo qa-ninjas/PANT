@@ -2,6 +2,7 @@
 input.json
 login_input.json
 corp_event_input.json
+notes.txt
 testbed.rb
 
 # Mac

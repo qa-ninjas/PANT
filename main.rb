@@ -6,9 +6,9 @@ require 'json'
 require_relative './workflows/login'
 require_relative './workflows/workflow_controller.rb'
 
-file = ARGV.first
+file = "./data/test-input.json"
 
-workflows = JSON.parse(File.read(file), :symbolize_names => true) if file
+workflows = JSON.parse(File.read(file), :symbolize_names => true) if File.file? file
 
 if workflows.instance_of?(Hash)
     puts workflows
@@ -25,9 +25,12 @@ else
     print "Password: "
     user[:password] = STDIN.noecho(&:gets)
 
+    print "Permissions: (hardcoded for now) "
+    user[:permissions] = ["AddHome", "CorporateEvent"]
+
     print "\nhost name? (https://<example.com> /path. Give me <> part plz \n"
     hostname = gets.chomp
-    commands = [{:workflow => "login", :user => user, :input => input}]
+    commands = [{:workflow => "add_home", :user => user, :input => input}]
     workflows = {:hostname => hostname, :commands => commands}
 end
 

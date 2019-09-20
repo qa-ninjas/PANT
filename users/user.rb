@@ -1,21 +1,20 @@
 
+###
+# Holds things like username, password, and actions common to all users (think login)
+#
 class User
     # include page_collection do i need this? require/include..
     # i think i dont but lets see
     attr_reader :current_page
 
-    def initialize username:, password:, page_builder:
+    def initialize username:, password:
         @username = username
         @password = password
-
-        @page_builder = page_builder
-        @current_page = nil
     end
 
-    def login
-        puts "user #{self.to_s} is trying to log into #{@page_builder.url}"
-        login_page = @page_builder.login_page
-        @current_page = login_page 
+    def login page_builder
+        puts "user #{self.to_s} is trying to log into #{page_builder.url}"
+        login_page = page_builder.login_page
       #  sleep(3)
         login_page.enter_username @username
         login_page.enter_password @password

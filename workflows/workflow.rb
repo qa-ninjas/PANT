@@ -7,11 +7,17 @@ class Workflow
     end
   end
 
-  def setup  user:, input:
+  def setup  user:, input:, page_builder:
     @input = input
-    @user = user
+    if user
+      @user = User.new(username: user[:username], password: user[:password])
+    end
+
+    @page_builder = page_builder
   end
 
+
+  ### same as setup, choose one or the other?? Keep both??
   def pre_run
     puts "settingup workflow for #{@user.to_s}..."
     ## not sure if we need this, standardized logging for begining a test?

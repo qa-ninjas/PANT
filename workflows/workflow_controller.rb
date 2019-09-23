@@ -1,11 +1,10 @@
 require_relative "./login"
 require_relative "./create_corporate_event"
 require_relative "./workflow"
-require_relative "../users/user_builder"
+#require_relative "../users/user_builder"
 require_relative "../pages/page_builder"
 
 class WorkflowController
-    include UserBuilder
 
     def initialize(workflows:)
         @commands = workflows[:commands]

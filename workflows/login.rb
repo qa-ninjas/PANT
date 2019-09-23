@@ -5,7 +5,7 @@ class Login < Workflow
     
     def run
         super
-        @user.login
+        @user.login @page_builder
         
         #page = @user.current_page
         # this was included to test the "Begin... Ensure " bit of the workflow controller

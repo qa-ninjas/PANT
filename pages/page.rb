@@ -55,13 +55,13 @@ class Page
     #
     #   docs: https://select2.org/
     def choose_from_select2 select2_identifier, choice
-        select2_root = select2_identifier[select2_identifier.keys[0]]
+        #select2_root = select2_identifier[select2_identifier.keys[0]]
         #Find and click the select2 element
         @driver.find_element(select2_identifier).click
         #Find and type into the input box, and entering the given choice
-        @driver.find_element(css: "##{select2_root} select2-input").send_keys choice
+        @driver.find_element(id: "s2id_autogen1_search").send_keys choice
         #Find and click the first result after typing in given value
-        @driver.find_element(css: "##{select2_root} .select2-results .select2-result-label").click 
+        @driver.find_element(css: "#select2-drop #select2-results-1").click 
     
     rescue Selenium::WebDriver::Error::NoSuchElementError
         puts "Couldn't find the given choice for #{select2_identifier}"

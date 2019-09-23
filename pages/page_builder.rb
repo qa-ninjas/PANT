@@ -1,5 +1,4 @@
 require_relative './login_page'
-require_relative './sales_page'
 require_relative './new_corporate_event_page'
 require "selenium-webdriver"
 
